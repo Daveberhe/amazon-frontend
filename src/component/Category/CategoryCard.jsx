@@ -5,7 +5,7 @@ import classes from "./Category.module.css";
 function CategoryCard({ data }) {
   return (
     <div className={classes.category}>
-      <a href={`/category/${data.name}`}>
+      <a href={`/category/${data?.name}`}>
         <span>
           <h2>{data?.title}</h2>
         </span>

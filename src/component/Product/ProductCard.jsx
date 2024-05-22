@@ -7,16 +7,16 @@ function ProductCard({ product }) {
   const { image, title, id, rating, price } = product;
   return (
     <div className={`${classes.card_container}`}>
-      <a href="">
+      <a href={`/products/ ${id}`}>
         <img src={image} alt="" />
       </a>
       <div>
         <h3>{title}</h3>
         <div className={classes.rating}>
           {/* {rating} */}
-          <Rating value={rating.rate} precision={0.1} />
+          <Rating value={rating?.rate} precision={0.1} />
           {/* {count} */}
-          <small>{rating.count}</small>
+          <small>{rating?.count}</small>
         </div>
         <div className={classes.button}>
           {/* {price} */}
