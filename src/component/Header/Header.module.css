@@ -2,7 +2,11 @@
   margin: 0;
   padding: 0;
 }
-
+.fixed {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 /* body {
   background-color: black;
 } */
@@ -64,9 +68,10 @@
 /* border none */
 
 .search svg {
-  padding: 10px;
+  padding: 7px;
   background: #febd69;
   color: #1a1a1a;
+  height: 37px;
 }
 .search svg:hover {
   background-color: #d49644;
@@ -80,7 +85,7 @@
   align-items: center;
   justify-content: center;
   max-width: 450px;
-  gap: 20px;
+  gap: 10px;
 }
 
 .order_container a {
@@ -109,10 +114,10 @@
 .cart span {
   position: absolute;
   font-weight: bold;
-  top: -6px;
+  top: -12px;
   font-size: 20px;
   background-color: #1a1a1a;
-  left: 16px;
+  left: 10px;
   color: orange;
 }
 .order_container a:hover,
