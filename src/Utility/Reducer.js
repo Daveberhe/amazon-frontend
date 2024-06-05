@@ -1,7 +1,9 @@
+import { act } from "react";
 import { Type } from "./Action.type";
 
 export const initialState = {
   basket: [],
+  user: null,
 };
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -40,34 +42,23 @@ export const reducer = (state, action) => {
         } else {
           newBasket.splice(index, 1);
         }
-        return {
-          ...state,
-          basket: newBasket,
-        };
       }
+      return {
+        ...state,
+        basket: newBasket,
+      };
+    case Type.EMPTY_BASKET:
+      return {
+        ...state,
+        basket: [],
+      };
+    case Type.SET_USER:
+      return {
+        ...state,
+        user: action.user,
+      };
 
     default:
       return state;
   }
 };
-//   const existingItem = state.basket.find(
-//     (item) => item.id === action.item.id
-//   );
-//   if (!existingItem) {
-//     return {
-//       ...state,
-//       basket: [...state.basket, { ...action.item, amount: 1 }],
-//     };
-//   } else {
-//     const updatedBasket = state.basket.map((item) => {
-//       return item.id === action.item.id
-//         ? { ...item, amount: item.amount + 1 }
-//         : item;
-//     });
-//     return {
-//       ...state,
-//       basket: updatedBasket,
-//     };
-//   }
-// default:
-//   return state;

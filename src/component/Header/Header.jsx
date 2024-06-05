@@ -6,9 +6,10 @@ import { IoIosSearch } from "react-icons/io";
 import LowerHeader from "./LowerHeader";
 import { FaCartShopping } from "react-icons/fa6";
 import { DataContext } from "../DataProvider/DataProvider";
+import { auth } from "../../Utility/firebase";
 
 const Header = () => {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{ user, basket }, dispatch] = useContext(DataContext);
   const totalItem = basket?.reduce((amount, item) => {
     return item.amount + amount;
   }, 0);
@@ -30,7 +31,7 @@ const Header = () => {
               </span>
               <div>
                 <p>Delivered to</p>
-                <span>84sefer</span>
+                <span>Ethiopia</span>
               </div>
             </div>
           </div>
@@ -54,11 +55,24 @@ const Header = () => {
               </section>
             </Link>
 
-            <Link to="/auth">
-              <p>Sign In</p>
-              <span>Account & Lists</span>
+            <Link to={!user && "/auth"}>
+              <div>
+                {user ? (
+                  <>
+                    <p>Hello {user?.email?.split("@")[0]}</p>
+                    <span onClick={() => auth.signOut()}>Sign Out</span>
+                  </>
+                ) : (
+                  <>
+                    <p>Hello, Sign In</p>
+                    <span>Account & Lists</span>
+                  </>
+                )}
+              </div>
+
+              {/* <span>Account & Lists</span> */}
             </Link>
-            <Link to="/Orders">
+            <Link to="/orders">
               <p>returns</p>
               <span>& Orders</span>
             </Link>
