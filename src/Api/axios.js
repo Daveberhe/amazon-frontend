@@ -7,7 +7,7 @@ const axiosInstance = axios.create({
   // baseURL: "http://localhost:5000",
 
   // deployed version of amazon server on render.com
-  baseUrl: "https://amazon-api-deploy-fet3.onrender.com",
+  baseURL: "https://amazon-api-deploy-fet3.onrender.com",
 });
 
 export { axiosInstance };

@@ -71,6 +71,7 @@ function Payment() {
         });
 
       // empty the basket
+
       dispatch({ type: Type.EMPTY_BASKET });
 
       setProcessing(false);
